@@ -1,6 +1,6 @@
 {
 	"name": "simple-call-limiter",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "A simple function rate limiter that delays execution of functions based on a specified delay.",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
