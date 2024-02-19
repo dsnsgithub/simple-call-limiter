@@ -4,7 +4,7 @@ A simple function rate limiter that delays execution of functions based on a spe
 
 ## Installation
 
-You can install simple-call-limiter via npm:
+You can install [simple-call-limiter](https://www.npmjs.com/package/simple-call-limiter) via npm:
 
 ```bash
 npm install simple-call-limiter
