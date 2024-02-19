@@ -33,11 +33,12 @@ export default class SimpleLimiter {
 	/**
 	 * Runs the provided function after ensuring the specified delay.
 	 * If multiple calls are made within the delay period, they are queued and executed sequentially.
-	 * @param {Function} fn - The function to be executed.
+	 * @template T
+	 * @param {(...args: any[]) => T} fn - The function to be executed.
 	 * @param {...any[]} args - Arguments to be passed to the function.
 	 * @returns {Promise<T>} A Promise that resolves when the function is executed.
 	 */
-	run<T>(fn: (...args: any[]) => T, ...args: any[]): Promise<T> {
+	run<T, Args extends any[]>(fn: (...args: Args) => T, ...args: Args): Promise<T> {
 		return new Promise<T>((resolve) => {
 			const currentTime = new Date().getTime();
 			const timeSinceLastCall = currentTime - this.lastCallTime;

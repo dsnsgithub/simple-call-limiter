@@ -27,7 +27,7 @@ Runs the provided function after ensuring the specified delay. If multiple calls
 
 Returns a Promise that resolves when the function is executed. If you are using Typescript, the type of the Promise is the output type of function.
 
-## Example
+## Example #1
 
 ```javascript
 import SimpleLimiter from "simple-call-limiter";
@@ -50,4 +50,30 @@ for (let i = 0; i < 10; i++) {
 // 7 (after 7 sec)
 // 8 (after 8 sec)
 // 9 (after 9 sec)
+```
+
+
+## Example #2
+
+```javascript
+import SimpleLimiter from "simple-call-limiter";
+
+// Create a new instance of SimpleLimiter with a delay of 1000 milliseconds
+const limiter = new SimpleLimiter(1000);
+
+async function asyncTest(item: string) {
+	return item;
+}
+
+async function run() {
+	for (let i = 0; i < 10; i++) {
+		const result = await limiter.run(asyncTest, "testing");
+		const result2 = await limiter.run(asyncTest) //! this will be flagged since asyncTest takes an argument and none is given.
+
+		console.log(typeof result); // type information is kept (string)
+		console.log(result);
+	}
+}
+
+run();
 ```
