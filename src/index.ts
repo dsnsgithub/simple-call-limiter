@@ -21,7 +21,7 @@ export default class SimpleLimiter {
 	delayMs: number;
 
 	/**
-	 * Creates an instance of RateLimit.
+	 * Creates an instance of SimpleLimiter.
 	 * @param {number} delayMs - The delay in milliseconds between function calls.
 	 */
 	constructor(delayMs: number) {
